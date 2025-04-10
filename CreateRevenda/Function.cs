@@ -13,6 +13,22 @@ using Shared.Models;
 
 namespace CreateRevenda
 {
+    // {
+    //  "body": "{\"cnpj\":\"12345678901234\",\"razaoSocial\":\"Empresa Exemplo Ltda\",\"nomeFantasia\":\"Exemplo Comercial\",\"email\":\"contato@exemplo.com.br\"}",
+    //  "headers": {
+    //    "Content-Type": "application/json"
+    //  },
+    //  "isBase64Encoded": false
+    //}
+
+    // {
+    //  "body": "{\"cnpj\":\"12345678901234\",\"razaoSocial\":\"Empresa Exemplo Ltda\",\"nomeFantasia\":\"Exemplo Comercial\",\"email\":\"contato@exemplo.com.br\",\"telefones\":[{\"numero\":\"11999998888\"}],\"contatos\":[{\"nome\":\"José Silva\",\"principal\":true}],\"enderecosEntrega\":[{\"logradouro\":\"Avenida Paulista\",\"numero\":\"1000\",\"complemento\":\"Sala 123\",\"bairro\":\"Bela Vista\",\"cidade\":\"São Paulo\",\"estado\":\"SP\",\"cep\":\"01310100\"}]}",
+    //  "headers": {
+    //    "Content-Type": "application/json"
+    //  },
+    //  "isBase64Encoded": false
+    //}
+
     public class Function
     {
         private readonly RevendasDAO dataAccess;
