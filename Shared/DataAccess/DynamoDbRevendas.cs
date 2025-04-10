@@ -9,7 +9,7 @@ namespace Shared.DataAccess
 {
     public class DynamoDbRevendas : RevendasDAO
     {
-        private static readonly string REVENDA_TABLE_NAME = "revenda-service-Table";
+        private static readonly string REVENDA_TABLE_NAME = "revenda-app-Table-15IYLM6VGQFJT";
         private readonly AmazonDynamoDBClient _dynamoDbClient;
 
         public DynamoDbRevendas()
