@@ -8,8 +8,8 @@ namespace Shared;
 [JsonSerializable(typeof(APIGatewayHttpApiV2ProxyResponse))]
 [JsonSerializable(typeof(List<string>))]
 [JsonSerializable(typeof(Dictionary<string, string>))]
-[JsonSerializable(typeof(Product))]
-[JsonSerializable(typeof(ProductWrapper))]
+[JsonSerializable(typeof(Revenda))]
+[JsonSerializable(typeof(RevendaWrapper))]
 public partial class CustomJsonSerializerContext : JsonSerializerContext
 {
 }

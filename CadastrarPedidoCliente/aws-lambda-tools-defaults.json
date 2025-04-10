@@ -11,5 +11,5 @@
   "function-runtime": "provided.al2",
   "function-memory-size": 256,
   "function-timeout": 30,
-  "function-handler": "CreateProduct::CreateProduct.Function::FunctionHandler"
+  "function-handler": "CreateRevenda::CreateRevenda.Function::FunctionHandler"
 }

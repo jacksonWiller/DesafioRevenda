@@ -10,7 +10,7 @@ Globals:
     Tracing: Active
     Environment:
       Variables:
-        PRODUCT_TABLE_NAME: !Ref Table
+        REVENDA_TABLE_NAME: !Ref Table
 
 Parameters:
   LambdaArchitecture:
@@ -22,83 +22,11 @@ Parameters:
     Description: Enter arm64 or x86_64
 
 Resources:
-  GetProductsFunction:
+  CreateRevendaFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./GetProducts/
-      Handler: GetProducts::GetProducts.Function::FunctionHandler
-      Events:
-        Api:
-          Type: HttpApi
-          Properties:
-            Path: /
-            Method: GET
-      Policies:
-        - DynamoDBReadPolicy:
-            TableName:
-              !Ref Table
-
-  GetProductFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: ./GetProduct/
-      Handler: GetProduct::GetProduct.Function::FunctionHandler
-      Events:
-        Api:
-          Type: HttpApi
-          Properties:
-            Path: /{id}
-            Method: GET
-      Policies:
-        - Version: "2012-10-17"
-          Statement:
-            - Effect: Allow
-              Action: dynamodb:GetItem
-              Resource: !GetAtt Table.Arn
-
-  DeleteProductFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: ./DeleteProduct/
-      Handler: DeleteProduct::DeleteProduct.Function::FunctionHandler
-      Events:
-        Api:
-          Type: HttpApi
-          Properties:
-            Path: /{id}
-            Method: DELETE
-      Policies:
-        - Version: "2012-10-17"
-          Statement:
-            - Effect: Allow
-              Action:
-                - dynamodb:DeleteItem
-                - dynamodb:GetItem
-              Resource: !GetAtt Table.Arn
-
-  PutProductFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: ./PutProduct/
-      Handler: PutProduct::PutProduct.Function::FunctionHandler
-      Events:
-        Api:
-          Type: HttpApi
-          Properties:
-            Path: /{id}
-            Method: PUT
-      Policies:
-        - Version: "2012-10-17"
-          Statement:
-            - Effect: Allow
-              Action: dynamodb:PutItem
-              Resource: !GetAtt Table.Arn
-
-  CreateProductFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: ./CreateProduct/
-      Handler: CreateProduct::CreateProduct.Function::FunctionHandler
+      CodeUri: ./CreateRevenda/
+      Handler: CreateRevenda::CreateRevenda.Function::FunctionHandler
       Events:
         Api:
           Type: HttpApi
