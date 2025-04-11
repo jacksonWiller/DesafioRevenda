@@ -1,0 +1,7 @@
+{
+  "body": "{\"revendaId\":\"62b8f422-637f-41bc-a603-36152e50f8af\",\"clienteId\":\"f0070935-b05a-4fbd-aeac-8e87a6db9196\",\"itens\":[{\"produto\":\"Cerveja Artesanal IPA\",\"quantidade\":500,\"precoUnitario\":18.50,\"valorTotal\":555.00},{\"produto\":\"Cerveja Artesanal Pilsen\",\"quantidade\":40,\"precoUnitario\":12.75,\"valorTotal\":510.00},{\"produto\":\"Cerveja Artesanal Stout\",\"quantidade\":15,\"precoUnitario\":22.90,\"valorTotal\":343.50},{\"produto\":\"Cerveja Artesanal Weiss\",\"quantidade\":20,\"precoUnitario\":16.80,\"valorTotal\":336.00}],\"observacoes\":\"Manter refrigerado. Entregar somente no período da manhã.\"}",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "isBase64Encoded": false
+}

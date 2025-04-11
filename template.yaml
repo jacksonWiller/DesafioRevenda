@@ -40,6 +40,42 @@ Resources:
               Action: dynamodb:PutItem
               Resource: !GetAtt Table.Arn
 
+  CreatePedidoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./CreatePedido/
+      Handler: CreatePedido::CreatePedido.Function::FunctionHandler
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: POST
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action: dynamodb:PutItem
+              Resource: !GetAtt Table.Arn
+
+  ProcessarPedidosFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./ProcessarPedidos/
+      Handler: ProcessarPedidos::ProcessarPedidos.Function::FunctionHandler
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: POST
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action: dynamodb:PutItem
+              Resource: !GetAtt Table.Arn
+
   Table:
     Type: AWS::DynamoDB::Table
     Properties:
