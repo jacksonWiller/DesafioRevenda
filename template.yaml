@@ -11,7 +11,6 @@ Globals:
     Environment:
       Variables:
         REVENDA_TABLE_NAME: !Ref Table
-        PROCESSAR_PEDIDOS_FUNCTION_NAME: !Ref ProcessarPedidosFunction
 
 Parameters:
   LambdaArchitecture:
@@ -64,6 +63,9 @@ Resources:
     Properties:
       CodeUri: ./CreatePedido/
       Handler: CreatePedido::CreatePedido.Function::FunctionHandler
+      Environment:
+        Variables:
+          PROCESSAR_PEDIDOS_FUNCTION_NAME: !Ref ProcessarPedidosFunction
       Events:
         Api:
           Type: HttpApi
@@ -74,7 +76,9 @@ Resources:
         - Version: "2012-10-17"
           Statement:
             - Effect: Allow
-              Action: dynamodb:PutItem
+              Action:
+                - dynamodb:PutItem
+                - dynamodb:GetItem
               Resource: !GetAtt Table.Arn
             - Effect: Allow
               Action: lambda:InvokeFunction
@@ -98,6 +102,7 @@ Resources:
               Action:
                 - dynamodb:PutItem
                 - dynamodb:GetItem
+                - dynamodb:Scan
               Resource: !GetAtt Table.Arn
 
   Table:
