@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreatePedido", "CreatePedid
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProcessarPedidos", "ProcessarPedidos\ProcessarPedidos.csproj", "{0EA590A7-E482-4E9B-B518-EDE84C45377D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetRevendas", "GetRevendas\GetRevendas.csproj", "{67FCE7E7-54CF-4574-95BB-FAE85BFB0176}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{0EA590A7-E482-4E9B-B518-EDE84C45377D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EA590A7-E482-4E9B-B518-EDE84C45377D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EA590A7-E482-4E9B-B518-EDE84C45377D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67FCE7E7-54CF-4574-95BB-FAE85BFB0176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67FCE7E7-54CF-4574-95BB-FAE85BFB0176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67FCE7E7-54CF-4574-95BB-FAE85BFB0176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67FCE7E7-54CF-4574-95BB-FAE85BFB0176}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

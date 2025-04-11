@@ -102,24 +102,8 @@ namespace CreateRevenda
                 revenda.DataCadastro = DateTime.Now;
                 revenda.Ativo = true;
 
-                // Realiza validações adicionais usando o RevendaValidator
-                //var validationResult = RevendaValidator.Validate(revenda);
-                //if (!validationResult.IsValid)
-                //{
-                //    return new APIGatewayHttpApiV2ProxyResponse
-                //    {
-                //        Body = JsonSerializer.Serialize(new { Errors = validationResult.Errors }),
-                //        StatusCode = (int)HttpStatusCode.BadRequest,
-                //        Headers = new Dictionary<string, string>
-                //        {
-                //            { "Content-Type", "application/json" }
-                //        }
-                //    };
-                //}
 
                 await dataAccess.PutRevenda(revenda);
-
-                var revendaGet = await dataAccess.GetRevenda(revenda.Id.ToString());
 
                 return new APIGatewayHttpApiV2ProxyResponse
                 {

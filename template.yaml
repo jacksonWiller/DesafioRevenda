@@ -11,6 +11,7 @@ Globals:
     Environment:
       Variables:
         REVENDA_TABLE_NAME: !Ref Table
+        PROCESSAR_PEDIDOS_FUNCTION_NAME: !Ref ProcessarPedidosFunction
 
 Parameters:
   LambdaArchitecture:
@@ -31,13 +32,31 @@ Resources:
         Api:
           Type: HttpApi
           Properties:
-            Path: /
+            Path: /revendas 
             Method: POST
       Policies:
         - Version: "2012-10-17"
           Statement:
             - Effect: Allow
               Action: dynamodb:PutItem
+              Resource: !GetAtt Table.Arn
+
+  GetRevendasFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./GetRevendas/
+      Handler: GetRevendas::GetRevendas.Function::FunctionHandler
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /revendas
+            Method: GET
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action: dynamodb:Scan
               Resource: !GetAtt Table.Arn
 
   CreatePedidoFunction:
@@ -49,7 +68,7 @@ Resources:
         Api:
           Type: HttpApi
           Properties:
-            Path: /
+            Path: /pedidos
             Method: POST
       Policies:
         - Version: "2012-10-17"
@@ -57,6 +76,9 @@ Resources:
             - Effect: Allow
               Action: dynamodb:PutItem
               Resource: !GetAtt Table.Arn
+            - Effect: Allow
+              Action: lambda:InvokeFunction
+              Resource: !GetAtt ProcessarPedidosFunction.Arn
 
   ProcessarPedidosFunction:
     Type: AWS::Serverless::Function
@@ -67,13 +89,15 @@ Resources:
         Api:
           Type: HttpApi
           Properties:
-            Path: /
+            Path: /processar
             Method: POST
       Policies:
         - Version: "2012-10-17"
           Statement:
             - Effect: Allow
-              Action: dynamodb:PutItem
+              Action:
+                - dynamodb:PutItem
+                - dynamodb:GetItem
               Resource: !GetAtt Table.Arn
 
   Table:
